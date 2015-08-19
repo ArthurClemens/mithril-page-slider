@@ -789,7 +789,7 @@ System.registerDynamic("app/app/github", ["lib/mithril/mithril.min"], true, func
   var content = function content() {
     var opts = arguments[0] === undefined ? {} : arguments[0];
     return (0, _mithril2["default"])(".github", [!opts.home ? (0, _mithril2["default"])("a", {
-      href: "/",
+      href: "index.html",
       config: null
     }, "All Examples") : null, (0, _mithril2["default"])("hr"), _mithril2["default"].trust('mithril-page-slider, Page slider for Mithril for mobile and desktop. Project page on <a href="https://github.com/ArthurClemens/mithril-page-slider">Github</a>.')]);
   };
