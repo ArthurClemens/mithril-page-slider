@@ -1,0 +1,119 @@
+@mixin page-coords($values) {
+	> .page {
+		@each $i in $values {
+			&.#{nth($i, 1)} {
+				transform: translate3d#{nth($i, 2)};
+			}
+		}
+	}
+}
+
+@mixin keyframe-animation($which, $orientation, $direction, $from, $to) {
+	@keyframes #{$orientation}-animate-#{$direction}-#{$which} {
+	    0% {
+	        transform: translate3d#{map-get($from, $which)};
+	    }
+	    100% {
+	        transform: translate3d#{map-get($to, $which)};
+	    }
+	}
+	> .page.#{$which} {
+		animation: #{$orientation}-animate-#{$direction}-#{$which};
+	}
+}
+
+.pageSlider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &.animating {
+    	pointer-events: none;
+    }
+
+	> .page {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    animation-duration: 300ms; // overwritten in js
+	    animation-timing-function: ease-in-out;
+
+	    &.previous {
+	    	transform:translateZ(1px);
+	    }
+	    &.current {
+	    	transform:translateZ(2px);
+	    }
+	    &.next {
+	    	transform:translateZ(3px);
+	    }
+	}
+
+	&,
+	&.ltr {
+		$coords: (
+			previous: "(-100%, 0, 1px)",
+			current:  "(0, 0, 2px)",
+			next:     "(100%, 0, 3px)"
+		);
+		$coords-forward: (
+			previous: "(-200%, 0, 1px)",
+			current:  "(-100%, 0, 2px)",
+			next:     "(0, 0, 3px)"
+		);
+		$coords-backward: (
+			previous: "(0, 0, 1px)",
+			current:  "(100%, 0, 2px)",
+			next:     "(200%, 0, 3px)"
+		);
+
+		@include page-coords($coords);
+
+		&.forward.animating {
+			@include keyframe-animation('previous', 'ltr', 'forward', $coords, $coords-forward);
+			@include keyframe-animation('current', 'ltr', 'forward', $coords, $coords-forward);
+			@include keyframe-animation('next', 'ltr', 'forward', $coords, $coords-forward);
+		}
+
+		&.backward.animating {
+			@include keyframe-animation('previous', 'ltr', 'backward', $coords, $coords-backward);
+			@include keyframe-animation('current', 'ltr', 'backward', $coords, $coords-backward);
+			@include keyframe-animation('next', 'ltr', 'backward', $coords, $coords-backward);
+		}
+	}
+	&.rtl {
+
+		$coords: (
+			previous: "(100%, 0, 1px)",
+			current:  "(0, 0, 2px)",
+			next:     "(-100%, 0, 3px)"
+		);
+		$coords-forward: (
+			previous: "(200%, 0, 1px)",
+			current:  "(100%, 0, 2px)",
+			next:     "(0, 0, 3px)"
+		);
+		$coords-backward: (
+			previous: "(0, 0, 1px)",
+			current:  "(-100%, 0, 2px)",
+			next:     "(-200%, 0, 3px)"
+		);
+
+		@include page-coords($coords);
+
+		&.forward.animating {
+			@include keyframe-animation('previous', 'rtl', 'forward', $coords, $coords-forward);
+			@include keyframe-animation('current', 'rtl', 'forward', $coords, $coords-forward);
+			@include keyframe-animation('next', 'rtl', 'forward', $coords, $coords-forward);
+		}
+
+		&.backward.animating {
+			@include keyframe-animation('previous', 'rtl', 'backward', $coords, $coords-backward);
+			@include keyframe-animation('current', 'rtl', 'backward', $coords, $coords-backward);
+			@include keyframe-animation('next', 'rtl', 'backward', $coords, $coords-backward);
+		}
+	}
+}

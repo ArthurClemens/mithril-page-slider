@@ -1,0 +1,54 @@
+{
+  "name": "mithril-page-slider",
+  "version": "0.1.0",
+  "description": "Page Slider for Mithril",
+  "keywords": [
+    "slider",
+    "mobile",
+    "mithril"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArthurClemens/mithril-page-slider.git"
+  },
+  "author": "Arthur Clemens <arthurclemens@gmail.com> (http://visiblearea.com)",
+  "license": "MIT",
+  "main": "mithril-page-slider.js",
+  "directories": {
+    "src": "src",
+    "baseURL": "src"
+  },
+  "dependencies": {
+    "mithril": "^0.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "",
+    "babel-core": "",
+    "babel-plugin-closure-elimination": "",
+    "chokidar": "",
+    "es6-module-loader": "",
+    "system-css": "",
+    "systemjs-builder": "",
+    "systemjs": "",
+    "uglifyjs": "",
+    "ratchet": "git@github.com:twbs/ratchet.git"
+  },
+  "scripts": {
+    "postinstall": "node scripts/copy-libs-examples.js examples/src/lib",
+    "transpile-examples-js": "mkdir -p examples/src/lib/mithril-page-slider/ && cp lib/mithril-page-slider.js examples/src/lib/mithril-page-slider/ && cp lib/mithril-page-slider.css examples/src/lib/mithril-page-slider/ && babel examples/src/app/index/index.es6.js --out-file examples/src/app/index/index.js && babel examples/src/app/app/github.es6.js --out-file examples/src/app/app/github.js && babel examples/src/app/list/list.es6.js --out-file examples/src/app/list/list.js && babel examples/src/app/rtl/rtl.es6.js --out-file examples/src/app/rtl/rtl.js && babel examples/src/app/simple/simple.es6.js --out-file examples/src/app/simple/simple.js",
+    "autoprefixer": "autoprefixer examples/src/app/**/*.css -b 'last 2 versions'",
+    "transpile-examples-css": "sass --update --sourcemap=none examples/src/app/ && npm run autoprefixer",
+    "transpile-examples": "npm run transpile-examples-css && npm run transpile-examples-js",
+    "build-examples": "node scripts/build-app.js examples",
+    "watch-examples-es6": "node scripts/watch-es6.js examples/src/ examples/src/lib/",
+    "watch-examples-css": "node scripts/watch-scss.js examples/src/ examples/src/lib/",
+    "watch-examples": "npm run watch-examples-es6 & npm run watch-examples-css",
+    "watch-source-css": "node scripts/watch-scss.js lib/",
+    "watch-source-es6": "node scripts/watch-es6.js lib/",
+    "watch-source": "npm run watch-source-css & npm run watch-source-es6",
+    "watch": "npm run watch-source & npm run watch-examples",
+    "copy-libs": "node scripts/copy-libs-examples examples/src/lib",
+    "copy-to-gh": "cp -R examples/build/* ../gh-pages/",
+    "github": "rm -rf ../gh-pages/app && rm -rf ../gh-pages/*.html && rm -rf ../gh-pages/lib && rm -rf ../gh-pages/config.js && npm run build-examples && npm run copy-to-gh"
+  }
+}
