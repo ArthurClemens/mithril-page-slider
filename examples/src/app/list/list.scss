@@ -1,4 +1,4 @@
-.pageSlider {
+.pageSlider.list {
     .page {
         background: #fff;
     }
@@ -18,5 +18,8 @@
     .more {
         padding: 20px;
         color: #999;
+    }
+    .github {
+        width: auto;
     }
 }

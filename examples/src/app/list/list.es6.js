@@ -3,10 +3,10 @@
 import m from 'mithril';
 import pageSlider from 'mithril-page-slider';
 import github from 'app/app/github';
-require('./list.css!');
 require('app/app/common.css!');
 require('ratchet/css/ratchet.min.css!');
 require('ratchet/css/ratchet-theme-ios.min.css!');
+require('./list.css!');
 
 // demo data
 const people = [
@@ -70,7 +70,7 @@ const slider = (page, type) => {
                 page: m.component(page, {
                     name: m.route.param('person')
                 }),
-                route: m.route(),
+                class: 'list',
                 done: () => setDocumentTitle(type)
             });
         }

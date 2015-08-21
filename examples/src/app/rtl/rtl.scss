@@ -1,4 +1,4 @@
-.pageSlider {
+.pageSlider.rtl {
     .page {
         background: #fff;
     }
@@ -27,5 +27,8 @@
     	>a:not(.btn) {
     		margin: -11px -15px -11px -65px;
     	}
+    }
+    .github {
+        width: auto;
     }
 }

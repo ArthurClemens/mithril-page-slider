@@ -2,8 +2,8 @@
 
 import m from 'mithril';
 import github from 'app/app/github';
-require('./index.css!');
 require('app/app/common.css!');
+require('./index.css!');
 
 const menuData = [
     {
@@ -18,8 +18,8 @@ const menuData = [
     },
     {
         href: 'rtl.html',
-        title: 'Right to Left',
-        subtitle: 'Arabic example'
+        title: 'Right-to-left',
+        subtitle: 'Languages like Arabic, Hebrew, ...'
     }
 ];
 

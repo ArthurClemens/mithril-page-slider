@@ -3,10 +3,10 @@
 import m from 'mithril';
 import pageSlider from 'mithril-page-slider';
 import github from 'app/app/github';
-require('./rtl.css!');
 require('app/app/common.css!');
 require('ratchet/css/ratchet.min.css!');
 require('ratchet/css/ratchet-theme-ios.min.css!');
+require('./rtl.css!');
 
 const home = {};
 const page1 = {};
@@ -22,7 +22,8 @@ const NAME_2 = 'ايمي';
 const slider = (page) => {
     return m.component(pageSlider, {
         page: page,
-        rtl: true
+        rtl: true,
+        class: 'rtl'
     });
 };
 
@@ -33,7 +34,7 @@ const header = (text, back) => {
             class: 'icon icon-right-nav pull-right',
             config: pageSlider.slideOutConfig({
                 page: back.page,
-                rtl: true
+                rtl: true,
             })
         }) : null,
         m('h1.title', text)
@@ -61,7 +62,7 @@ const card = (name, image) => {
 
 home.view = () => {
     return m('div',
-        header('Page Slider for Mithril - Right to Left'),
+        header('Page Slider for Mithril - Right-to-left'),
         m('.content', [
             m('ul.table-view',
                 m('li.table-view-cell.media',

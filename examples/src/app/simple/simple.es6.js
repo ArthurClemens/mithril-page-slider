@@ -3,10 +3,10 @@
 import m from 'mithril';
 import pageSlider from 'mithril-page-slider';
 import github from 'app/app/github';
-require('./simple.css!');
 require('app/app/common.css!');
 require('ratchet/css/ratchet.min.css!');
 require('ratchet/css/ratchet-theme-ios.min.css!');
+require('./simple.css!');
 
 const home = {};
 const page1 = {};
@@ -16,7 +16,8 @@ const page2 = {};
 // this function is called at route change
 const slider = (page) => {
     return m.component(pageSlider, {
-        page: page
+        page: page,
+        class: 'simple'
     });
 };
 
