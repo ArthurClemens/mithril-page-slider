@@ -1,8 +1,8 @@
-# Page Slider for Mithril
+# Page Slider for Mithril on mobile and desktop
 
-Component to create page transitions in a Mithril application.
+Component to create page-to-page transitions in a Mithril application.
 
-Version 0.1.0
+Version 0.1.1
 
 
 ## Examples
@@ -17,7 +17,7 @@ The examples use [Ratchet](http://goratchet.com) for some CSS boilerplate. The p
 
 * Small footprint
 * Transitions can be customized with CSS
-* Right to left language support, using reverse transitions
+* Right to left language support, using mirrored transitions
 * Browser back/forward button support
 
 
@@ -65,6 +65,21 @@ We wrap it in the slider like this:
 
 The `page` parameter is required.
 
+Used in the routing configuration:
+
+	m.route(document.body, '/', {
+	    '/': m.component(pageSlider, {
+	        page: home
+	    })
+	    '/page1': m.component(pageSlider, {
+	        page: page1
+	    })
+	    '/page2': m.component(pageSlider, {
+	        page: page2
+	    })
+	});
+
+
 We can create a function for this:
 
 	const slider = (page) => {
@@ -73,7 +88,7 @@ We can create a function for this:
 	    });
 	};
 
-So that the route configuration become a bit neater:
+So that the route configuration becomes more readable:
 
 	m.route(document.body, '/', {
 	    '/': slider(home),
@@ -117,24 +132,35 @@ The examples offer more complete illustrations of usage.
 
 ### Configuration parameters
 
-Parameters can be used for route and link calls, with the exeption of transition parameters `direction` and `duration` that don't have any effect on route calls, obviously.
-
+#### Route parameters
 
 | **Parameter** |  **Mandatory** | **Type** | **Default** | **Description** |
 | ------------- | -------------- | -------- | ----------- | --------------- |
-| **page** | required | Mithril Template or Component | | Page to show or move to | 
-| **route** | optional | String | The result of `m.route()` | The destination route; by default provided with the link config |
+| **page** | required | Mithril Template or Component | | Page to show | 
+| **rtl** | optional | Boolean | `false` | Right-to-left language support; set to true to mirror transitions |
+| **class** | optional | String | | Slider CSS class appended to ".sliderClass" |
+| **pageClass** | optional | String | | Page CSS class appended to ".page" |
+
+
+#### Transition parameters
+
+| **Parameter** |  **Mandatory** | **Type** | **Default** | **Description** |
+| ------------- | -------------- | -------- | ----------- | --------------- |
+| **page** | required | Mithril Template or Component | | Page to move to |
 | **duration** | optional | Number | 360 | Transition duration in ms |
-| **rtl** | optional | Boolean | `false` | Set to true to mirror transitions; pass this to all calls |
 | **done** | optional | Function | | Called at the end of a transition, after the route change; also called for the first page (when no route change is applied) |
 
-Expert parameters:
 
-| **Parameter** |  **Mandatory** | **Type** | **Default** | **Description** |
-| ------------- | -------------- | -------- | ----------- | --------------- |
-| **direction** | optional | Number: 1 or -1 | 1 | Transition direction, where -1 stands for backward (regardless the writing orientation) |
-| **slider** | optional | String | 'default' | ID for each slider, in case multiple sliders are used |
-| **id** | optional | String | The value of `route` | An id is used for each page state to distinguish pages and assign navigation depth; not required when `route` is used |
+#### Expert parameters
+
+These are normally not needed.
+
+| **Parameter** |  **Route or Transition** | **Mandatory** | **Type** | **Default** | **Description** |
+| ------------- | ------------------------ | ------------- | -------- | ----------- | --------------- |
+| **route** | transition | optional | String | The result of `m.route()` | The destination route; by default provided with the link config |
+| **direction** | transition | optional | Number: 1 or -1 | 1 | Transition direction, where -1 stands for backward (regardless the writing orientation) |
+| **slider** | both | optional | String | 'default' | In case multiple sliders are used, sliders can be distinguished by adding this id |
+| **id** | both | optional | String | The value of `route` | An id is used for each page state to distinguish pages and assign navigation depth; use only when `route` is not used |
 
 
 ### Methods
