@@ -1,5 +1,5 @@
 "bundle";
-System.registerDynamic("app/index/index", ["lib/mithril/mithril.min", "app/app/github", "app/index/index.css!lib/system-css/css", "app/app/common.css!lib/system-css/css"], true, function(require, exports, module) {
+System.registerDynamic("app/index/index", ["lib/mithril/mithril.min", "app/app/github", "app/app/common.css!lib/system-css/css", "app/index/index.css!lib/system-css/css"], true, function(require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -12,8 +12,8 @@ System.registerDynamic("app/index/index", ["lib/mithril/mithril.min", "app/app/g
   var _mithril2 = _interopRequireDefault(_mithril);
   var _appAppGithub = require("app/app/github");
   var _appAppGithub2 = _interopRequireDefault(_appAppGithub);
-  require("app/index/index.css!lib/system-css/css");
   require("app/app/common.css!lib/system-css/css");
+  require("app/index/index.css!lib/system-css/css");
   var menuData = [{
     href: "simple.html",
     title: "Simple",
@@ -24,8 +24,8 @@ System.registerDynamic("app/index/index", ["lib/mithril/mithril.min", "app/app/g
     subtitle: "Try with the browser's back and forward buttons"
   }, {
     href: "rtl.html",
-    title: "Right to Left",
-    subtitle: "Arabic example"
+    title: "Right-to-left",
+    subtitle: "Languages like Arabic, Hebrew, ..."
   }];
   var menu = (0, _mithril2["default"])("ul.menu", [(0, _mithril2["default"])("li.header", "Examples"), menuData.map(function(menuItem) {
     return (0, _mithril2["default"])("li", (0, _mithril2["default"])("a", {
@@ -774,7 +774,7 @@ var m = function a(b, c) {
 
 _removeDefine();
 })();
-System.registerDynamic("app/app/github", ["lib/mithril/mithril.min"], true, function(require, exports, module) {
+System.registerDynamic("app/app/github", ["lib/mithril/mithril.min", "app/app/github.css!lib/system-css/css"], true, function(require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -786,12 +786,13 @@ System.registerDynamic("app/app/github", ["lib/mithril/mithril.min"], true, func
   }
   var _mithril = require("lib/mithril/mithril.min");
   var _mithril2 = _interopRequireDefault(_mithril);
+  require("app/app/github.css!lib/system-css/css");
   var content = function content() {
     var opts = arguments[0] === undefined ? {} : arguments[0];
-    return (0, _mithril2["default"])(".github", [!opts.home ? (0, _mithril2["default"])("a", {
+    return (0, _mithril2["default"])(".github", {dir: "ltr"}, [!opts.home ? (0, _mithril2["default"])("a", {
       href: "index.html",
       config: null
-    }, "All Examples") : null, (0, _mithril2["default"])("hr"), _mithril2["default"].trust('mithril-page-slider, Page slider for Mithril for mobile and desktop. Project page on <a href="https://github.com/ArthurClemens/mithril-page-slider">Github</a>.')]);
+    }, "All examples") : null, (0, _mithril2["default"])("hr"), _mithril2["default"].trust('mithril-page-slider, Page Slider for Mithril on mobile and desktop. Project page on <a href="https://github.com/ArthurClemens/mithril-page-slider">Github</a>.')]);
   };
   exports["default"] = content;
   module.exports = exports["default"];
