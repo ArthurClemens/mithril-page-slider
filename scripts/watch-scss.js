@@ -4,6 +4,7 @@ var chokidar = require('chokidar');
 var what = process.argv[2];
 var ignore = (process.argv[3] && process.argv[3] !== 'null') ? process.argv[3] : null;
 var persistent = !(process.argv[4] === 'once');
+var callback = process.argv[5];
 var extensionRe = /\.([\u00C0-\u1FFF\u2C00-\uD7FF\w-_]+)(?:[\?#]|$)/;
 var underscoreRe = /(_[\u00C0-\u1FFF\u2C00-\uD7FF\w-_]+)\.([\u00C0-\u1FFF\u2C00-\uD7FF\w-_]+)(?:[\?#]|$)/;
 var validExtension = 'scss';
@@ -69,7 +70,7 @@ var transform = function(inPath, outPath) {
     var dir = pathParts.join('/');
     var outPathParts = outPath.split(/\//);
     var outFileName = outPathParts.pop();
-    execute([
+    var cmd = [
         'cd', dir,
         '&&',
         'sass --sourcemap=none --style=expanded', inFileName, '>', outFileName,
@@ -77,7 +78,11 @@ var transform = function(inPath, outPath) {
         'autoprefixer -b \'last 2 versions\'', outFileName,
         '&&',
         'cleancss', '-o', outFileName, outFileName
-    ].join(' '));
+    ].join(' ');
+    if (callback) {
+        cmd += ' && npm run ' + callback;
+    }
+    execute(cmd);
 };
 
 watcher

@@ -2,7 +2,7 @@
 
 Component to create page-to-page transitions in a Mithril application.
 
-Version 0.1.1
+Version 0.1.2
 
 
 ## Examples
@@ -17,7 +17,7 @@ The examples use [Ratchet](http://goratchet.com) for some CSS boilerplate. The p
 
 * Small footprint
 * Transitions can be customized with CSS
-* Right to left language support, using mirrored transitions
+* Right-to-left language support, using mirrored transitions
 * Browser back/forward button support
 
 
@@ -32,6 +32,7 @@ Either:
 For development:
 
 * In the root directory: `npm install`
+* `npm run watch` - transpile es6 and scss files
 
 
 ## Usage
@@ -137,7 +138,7 @@ The examples offer more complete illustrations of usage.
 | **Parameter** |  **Mandatory** | **Type** | **Default** | **Description** |
 | ------------- | -------------- | -------- | ----------- | --------------- |
 | **page** | required | Mithril Template or Component | | Page to show | 
-| **rtl** | optional | Boolean | `false` | Right-to-left language support; set to true to mirror transitions |
+| **rtl** | optional | Boolean | `false` | Right-to-left language support (for instance Arabic and Hebrew); set to true to mirror transitions |
 | **class** | optional | String | | Slider CSS class appended to ".sliderClass" |
 | **pageClass** | optional | String | | Page CSS class appended to ".page" |
 

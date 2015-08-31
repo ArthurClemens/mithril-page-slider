@@ -4,6 +4,7 @@ var chokidar = require('chokidar');
 var what = process.argv[2];
 var ignore = (process.argv[3] && process.argv[3] !== 'null') ? process.argv[3] : null;
 var persistent = !(process.argv[4] === 'once');
+var callback = process.argv[5];
 var extensionRe = /\.([\u00C0-\u1FFF\u2C00-\uD7FF\w-_.\d]{1,})$/;
 var validExtension = 'es6.js';
 var maxDepth = 5;
@@ -55,11 +56,15 @@ var createOutPath = function(inPath) {
 };
 
 var transform = function(inPath, outPath) {
-    execute([
+    var cmd = [
         'babel', inPath, '>', outPath,
         '&&',
         'uglifyjs', '-o', outPath, outPath
-    ].join(' '));
+    ].join(' ');
+    if (callback) {
+        cmd += ' && npm run ' + callback;
+    }
+    execute(cmd);
 };
 
 watcher
