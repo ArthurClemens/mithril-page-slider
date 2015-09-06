@@ -1,7 +1,6 @@
 'use strict';
 
 import m from 'mithril';
-require('./github.css!');
 
 let content = (opts = {}) => {
 	return m('.github', {dir: 'ltr'}, [

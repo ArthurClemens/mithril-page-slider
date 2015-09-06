@@ -6,8 +6,6 @@ var BUILD_DIR = [DESTINATION, '/', 'build'].join('');
 var appDir = [BUILD_DIR, '/', 'app'].join('');
 
 var filesToMinify = [
-    BUILD_DIR + '/lib/system-css/css.js',
-    BUILD_DIR + '/lib/system-text/text.js',
     BUILD_DIR + '/lib/systemjs/es6-module-loader.js',
     BUILD_DIR + '/lib/systemjs/system.js'
 ];
@@ -43,10 +41,6 @@ var cmds = [
     '&&',
     'cp', '-R', SRC_DIR + '/lib/mithril-page-slider', BUILD_DIR + '/lib/',
     '&&',
-    'cp', '-R', SRC_DIR + '/lib/system-css', BUILD_DIR + '/lib/',
-    '&&',
-    'cp', '-R', SRC_DIR + '/lib/system-text', BUILD_DIR + '/lib/',
-    '&&',
     'cp', '-R', SRC_DIR + '/app', BUILD_DIR,
     '&&',
     'rm', appDir + '/**/*.scss',
@@ -65,20 +59,17 @@ filesToMinify.map(function(file) {
 var builder = new Builder({
     'baseURL': SRC_DIR,
     'paths': {
-        '*': '*.js',
-        '*.css': '*.css',
-        '*.svg': '*.svg'
+        '*': '*.js'
     },
     'map': {
         'mithril': 'lib/mithril/mithril.min',
         'ratchet': 'lib/ratchet',
-        'mithril-page-slider': 'lib/mithril-page-slider/mithril-page-slider',
-        'css': 'lib/system-css/css'
+        'mithril-page-slider': 'lib/mithril-page-slider/mithril-page-slider'
     }
 });
 
 var buildOpts = {
-    minify: false,
+    minify: true,
     sourceMaps: false
 };
 

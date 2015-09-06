@@ -1,6 +1,6 @@
 {
   "name": "mithril-page-slider",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Page Slider for Mithril",
   "keywords": [
     "slider",
@@ -22,12 +22,12 @@
     "mithril": "^0.2.0"
   },
   "devDependencies": {
+    "rimraf": "",
     "autoprefixer": "",
     "babel-core": "",
     "babel-plugin-closure-elimination": "",
     "chokidar": "",
     "es6-module-loader": "",
-    "system-css": "",
     "systemjs-builder": "",
     "systemjs": "",
     "uglifyjs": "",
@@ -50,6 +50,7 @@
     "watch": "npm run watch-source & npm run watch-examples",
     "copy-libs": "node scripts/copy-libs-examples examples/src/lib",
     "copy-to-gh": "cp -R examples/build/* ../gh-pages/",
-    "github": "rm -rf ../gh-pages/app && rm -rf ../gh-pages/*.html && rm -rf ../gh-pages/lib && rm -rf ../gh-pages/config.js && npm run transpile-all && npm run build-examples && npm run copy-to-gh"
+    "clean": "rimraf examples/build && rimraf examples/src/lib",
+    "github": "rimraf ../gh-pages/app && rimraf ../gh-pages/*.html && rimraf ../gh-pages/lib && rimraf ../gh-pages/config.js && npm run transpile && npm run build-examples && npm run copy-to-gh"
   }
 }

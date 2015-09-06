@@ -2,8 +2,6 @@
 
 import m from 'mithril';
 import github from 'app/app/github';
-require('app/app/common.css!');
-require('./index.css!');
 
 const menuData = [
     {

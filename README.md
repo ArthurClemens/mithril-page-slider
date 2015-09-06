@@ -2,7 +2,7 @@
 
 Component to create page-to-page transitions in a Mithril application.
 
-Version 0.1.2
+Version 0.1.3
 
 
 ## Examples
@@ -28,10 +28,16 @@ Either:
 
 * Download or clone from Github
 * `npm install mithril-page-slider`
+* `cd mithril-page-slider`
+* `npm install`
 
-For development:
+Then go to the examples folder and view index.html in the browser.
 
-* In the root directory: `npm install`
+
+### Further development
+
+View `package.json` to see available scripts. For instance: 
+
 * `npm run watch` - transpile es6 and scss files
 
 
