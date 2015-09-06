@@ -2,7 +2,7 @@
 
 Component to create page-to-page transitions in a Mithril application.
 
-Version 0.1.3
+Version 0.1.4
 
 
 ## Examples
