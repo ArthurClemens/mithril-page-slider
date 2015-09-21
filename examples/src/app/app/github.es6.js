@@ -1,6 +1,9 @@
 'use strict';
 
 import m from 'mithril';
+import styler from 'app/app/styler';
+import style from './github-style';
+styler.add('github', style);
 
 let content = (opts = {}) => {
 	return m('.github', {dir: 'ltr'}, [

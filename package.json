@@ -19,19 +19,20 @@
     "baseURL": "src"
   },
   "dependencies": {
-    "mithril": "^0.2.0"
+    "mithril": "^0.2.0",
+    "j2c": "^0.7.3"
   },
   "devDependencies": {
     "rimraf": "",
     "autoprefixer": "",
-    "babel-core": "",
-    "babel-plugin-closure-elimination": "",
-    "chokidar": "",
-    "es6-module-loader": "",
-    "systemjs-builder": "",
-    "systemjs": "",
-    "uglifyjs": "",
-    "ratchet": "git@github.com:twbs/ratchet.git"
+    "babel": "^5.8.23",
+    "babel-plugin-closure-elimination": "0.0.2",
+    "chokidar": "^1.0.6",
+    "es6-module-loader": "^0.17.7",
+    "ratchet": "git@github.com:twbs/ratchet.git",
+    "systemjs": "^0.19.0",
+    "systemjs-builder": "^0.14.0",
+    "uglify-js": "^2.4.24"
   },
   "scripts": {
     "postinstall": "npm run copy-libs",
@@ -48,6 +49,7 @@
     "watch-source-es6": "node scripts/watch-es6.js lib/ null null copy-libs",
     "watch-source": "npm run watch-source-css & npm run watch-source-es6",
     "watch": "npm run watch-source & npm run watch-examples",
+    "standalone-css": "node scripts/create-standalone-css.js > lib/mithril-page-slider.css",
     "copy-libs": "node scripts/copy-libs-examples examples/src/lib",
     "copy-to-gh": "cp -R examples/build/* ../gh-pages/",
     "clean": "rimraf examples/build && rimraf examples/src/lib",

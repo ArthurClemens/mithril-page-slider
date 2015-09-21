@@ -4,6 +4,18 @@ import m from 'mithril';
 import pageSlider from 'mithril-page-slider';
 import github from 'app/app/github';
 
+import styleFn from 'mithril-page-slider-style';
+import sliderStyle from 'mithril-page-slider-transition-style';
+const style = styleFn(sliderStyle);
+
+import styler from 'app/app/styler';
+styler.add('mithril-page-slider', style);
+
+import commonStyle from 'app/app/common-style';
+import simpleStyle from './simple-style';
+styler.add('common', commonStyle);
+styler.add('simple', simpleStyle);
+
 const home = {};
 const page1 = {};
 const page2 = {};

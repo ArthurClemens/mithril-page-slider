@@ -3,6 +3,12 @@
 import m from 'mithril';
 import github from 'app/app/github';
 
+import styler from 'app/app/styler';
+import commonStyle from 'app/app/common-style';
+import indexStyle from './index-style';
+styler.add('common', commonStyle);
+styler.add('index', indexStyle);
+
 const menuData = [
     {
         href: 'simple.html',
@@ -36,8 +42,8 @@ const menu = m('ul.menu', [
     })
 ]);
 
-let app = {};
-app.view = () => {
+let index = {};
+index.view = () => {
     return m('div', [
         m('h1', 'Page Slider for Mithril'),
         menu,
@@ -45,4 +51,4 @@ app.view = () => {
     ]);
 };
 
-m.mount(document.body, app);
+m.mount(document.body, index);

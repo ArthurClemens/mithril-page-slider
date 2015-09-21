@@ -1,9 +1,21 @@
 var Builder = require('systemjs-builder');
 
 var DESTINATION = process.argv[2];
+var DESTINATION_DIR = [DESTINATION, '/'].join('');
 var SRC_DIR = [DESTINATION, '/', 'src'].join('');
 var BUILD_DIR = [DESTINATION, '/', 'build'].join('');
 var appDir = [BUILD_DIR, '/', 'app'].join('');
+
+var SUB_DIRS = [
+    'index',
+    'list',
+    'rtl',
+    'simple'
+];
+
+var getSubDirPath = function(name) {
+    return ['app', name, name].join('/');
+};
 
 var filesToMinify = [
     BUILD_DIR + '/lib/systemjs/es6-module-loader.js',
@@ -35,6 +47,8 @@ var cmds = [
     '&&',
     'cp', '-R', SRC_DIR + '/lib/systemjs', BUILD_DIR + '/lib/',
     '&&',
+    'cp', '-R', SRC_DIR + '/lib/j2c', BUILD_DIR + '/lib/',
+    '&&',
     'cp', '-R', SRC_DIR + '/lib/mithril', BUILD_DIR + '/lib/',
     '&&',
     'cp', '-R', SRC_DIR + '/lib/ratchet', BUILD_DIR + '/lib/',
@@ -42,12 +56,9 @@ var cmds = [
     'cp', '-R', SRC_DIR + '/lib/mithril-page-slider', BUILD_DIR + '/lib/',
     '&&',
     'cp', '-R', SRC_DIR + '/app', BUILD_DIR,
+    // clean up
     '&&',
-    'rm', appDir + '/**/*.scss',
-    '&&',
-    'rm', appDir + '/**/*.es6.js',
-    '&&',
-    'rm', '-R', appDir + '**/.sass-cache'
+    'rm', appDir + '/**/*.es6.js'
 ];
 
 execute(cmds.join(' '));
@@ -57,6 +68,7 @@ filesToMinify.map(function(file) {
 });
 
 var builder = new Builder({
+    'defaultJSExtensions': true,
     'baseURL': SRC_DIR,
     'paths': {
         '*': '*.js'
@@ -64,7 +76,10 @@ var builder = new Builder({
     'map': {
         'mithril': 'lib/mithril/mithril.min',
         'ratchet': 'lib/ratchet',
-        'mithril-page-slider': 'lib/mithril-page-slider/mithril-page-slider'
+        'mithril-page-slider': 'lib/mithril-page-slider/mithril-page-slider',
+        'mithril-page-slider-style': 'lib/mithril-page-slider/mithril-page-slider-style',
+        'mithril-page-slider-transition-style': 'lib/mithril-page-slider/mithril-page-slider-transition-style',
+        'j2c': 'lib/j2c/j2c.global.min'
     }
 });
 
@@ -73,9 +88,18 @@ var buildOpts = {
     sourceMaps: false
 };
 
-builder.build('app/index/index', BUILD_DIR + '/app/index/index.js', buildOpts).then(function() {
-    console.log('Build complete');
-})
-.catch(function(err) {
-    console.error(err);
-});
+Promise.all(SUB_DIRS.map(function(dir) {
+        return builder.trace(getSubDirPath(dir));
+    })).then(function(trees) {
+        var commonTree = builder.intersectTrees.apply(this, trees);
+        return Promise.all([
+            builder.bundle(commonTree, BUILD_DIR + '/app/common.js', buildOpts)
+        ].concat(trees.map(function(tree, index) {
+            return builder.bundle(builder.subtractTrees(tree, commonTree), BUILD_DIR + '/' + getSubDirPath(SUB_DIRS[index]) + '.js', buildOpts);
+        })));
+    }).then(function() {
+        console.log('Build complete');
+    })
+    .catch(function(err) {
+        console.error(err);
+    });
