@@ -1,6 +1,7 @@
 const styles = [
 	{
 		'.pageSlider.simple': {
+		    'background': '#000',
             ' .page': {
                 'background': '#fff'
             },

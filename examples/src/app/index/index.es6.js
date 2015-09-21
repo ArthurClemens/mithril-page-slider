@@ -24,6 +24,11 @@ const menuData = [
         href: 'rtl.html',
         title: 'Right-to-left',
         subtitle: 'Languages like Arabic, Hebrew, ...'
+    },
+    {
+        href: 'effect.html',
+        title: 'Transition effects',
+        subtitle: 'Custom transition style'
     }
 ];
 

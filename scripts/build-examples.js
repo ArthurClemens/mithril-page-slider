@@ -7,6 +7,7 @@ var BUILD_DIR = [DESTINATION, '/', 'build'].join('');
 var appDir = [BUILD_DIR, '/', 'app'].join('');
 
 var SUB_DIRS = [
+    'effect',
     'index',
     'list',
     'rtl',

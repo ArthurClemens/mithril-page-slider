@@ -2,7 +2,7 @@
 
 Component to create page-to-page transitions in a Mithril application.
 
-Version 0.1.4
+Version 0.2.0
 
 
 ## Examples
@@ -220,7 +220,7 @@ The j2c way goes like this. In your application file:
 
 `styleFn` returns a function that applies a transition style object. See the default style `mithril-page-slider-transition-style.es6.js`.
 
-You may choose to omit either style for 'rtl' or 'ltr'.
+You may choose to omit either style for 'rtl' or 'ltr'. See the "effects" example for a custom transition effect.
 
 
 The examples app dir contains a convenience function to add the styles to the document head:
