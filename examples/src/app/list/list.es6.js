@@ -88,7 +88,7 @@ const slider = (page, type) => {
 
 // convenience function for links
 // calls either pageSlider.slideInConfig or pageSlider.slideOutConfig
-// and returns a config funtion
+// and returns a config function
 const slide = (direction, page, type) => {
     const fn = direction === 'out' ? pageSlider.slideOutConfig : pageSlider.slideInConfig;
     return fn({

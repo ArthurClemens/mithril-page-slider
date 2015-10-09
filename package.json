@@ -54,5 +54,10 @@
     "copy-to-gh": "cp -R examples/build/* ../gh-pages/",
     "clean": "rimraf examples/build && rimraf examples/src/lib",
     "github": "rimraf ../gh-pages/app && rimraf ../gh-pages/*.html && rimraf ../gh-pages/lib && rimraf ../gh-pages/config.js && npm run transpile && npm run build-examples && npm run copy-to-gh"
+  },
+  "jspm": {
+    "directories": {
+      "lib": "lib"
+    }
   }
 }
