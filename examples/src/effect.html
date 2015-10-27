@@ -1,19 +1,20 @@
+<!-- SystemJS version -->
 <!doctype html>
 <html>
 <head>
-    <title>Page Slider for Mithril - Transition effects</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta http-equiv="cleartype" content="on">
-    <link href="lib/ratchet/css/ratchet.min.css" media="all" rel="stylesheet" />
-    <link href="lib/ratchet/css/ratchet-theme-ios.min.css" media="all" rel="stylesheet" />
-    <script src="lib/systemjs/system.js"></script>
-    <script src="config.js"></script>
-    <script src="app/common.js"></script>
-    <script>
-        System.import("app/effect/effect");
-    </script>
+	<title>Page Slider for Mithril - Transition effects</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="cleartype" content="on">
+    <link href="node_modules/ratchet/dist/css/ratchet.min.css" media="all" rel="stylesheet" />
+    <link href="node_modules/ratchet/dist/css/ratchet-theme-ios.min.css" media="all" rel="stylesheet" />
+    <script src="node_modules/systemjs/dist/system.js"></script>
+	<script src="config.js"></script>
 </head>
-    <body></body>
+    <body>
+        <script>
+    		System.import("app/effect/effect");
+    	</script>
+    </body>
 </html>

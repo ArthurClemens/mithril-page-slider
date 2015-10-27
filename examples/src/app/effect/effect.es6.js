@@ -25,7 +25,7 @@ const page2 = {};
 const slider = (page) => {
     return m.component(pageSlider, {
         page: page,
-        class: 'simple'
+        class: 'effect'
     });
 };
 

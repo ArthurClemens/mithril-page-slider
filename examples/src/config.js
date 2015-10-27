@@ -1,15 +1,18 @@
 System.config({
-    'defaultJSExtensions': true,
-    'baseURL': '.',
-    'paths': {
-        '*': '*.js'
+    baseURL: '.',
+    defaultJSExtensions: true,
+    transpiler: 'babel',
+    babelOptions: {
+        'optional': [
+            'runtime',
+            'optimisation.modules.system'
+        ]
     },
     'map': {
-        'mithril': 'lib/mithril/mithril.min',
-        'ratchet': 'lib/ratchet',
-        'mithril-page-slider': 'lib/mithril-page-slider/mithril-page-slider',
-        'mithril-page-slider-style': 'lib/mithril-page-slider/mithril-page-slider-style',
-        'mithril-page-slider-transition-style': 'lib/mithril-page-slider/mithril-page-slider-transition-style',
-        'j2c': 'lib/j2c/j2c.global.min'
+        'j2c': 'node_modules/j2c/dist/j2c.global.min',
+        'mithril': 'node_modules/mithril/mithril.min',
+        'mithril-page-slider': 'node_modules/mithril-page-slider/lib/mithril-page-slider',
+        'mithril-page-slider-style': 'node_modules/mithril-page-slider/lib/mithril-page-slider-style',
+        'mithril-page-slider-transition-style': 'node_modules/mithril-page-slider/lib/mithril-page-slider-transition-style'
     }
 });

@@ -341,7 +341,7 @@ transform:translate3d(0, 0, 2px);
 transform:translate3d(100%, 0, 3px);
 }
 .pageSlider{
-overflow:hidden;
+overflow-x:hidden;
 height:100%;
 width:100%;
 position:relative;

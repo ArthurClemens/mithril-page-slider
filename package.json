@@ -1,63 +1,34 @@
 {
   "name": "mithril-page-slider",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Page Slider for Mithril",
+  "main": "lib/mithril-page-slider.js",
+  "scripts": {
+    "transpile": "node scripts/transpile.js once lib node_modules",
+    "watch": "node scripts/transpile.js watch lib node_modules",
+    "standalone-css": "node scripts/create-standalone-css.js > lib/mithril-page-slider.css"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "j2c": "^0.7.3",
+    "mithril": "^0.2.0",
+    "transpile-watch": "0.0.2",
+    "uglify-js": "^2.4.24",
+    "uglifyjs": "^2.4.10"
+  },
   "keywords": [
     "slider",
     "mobile",
     "mithril"
+  ],
+  "files": [
+    "lib"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ArthurClemens/mithril-page-slider.git"
   },
   "author": "Arthur Clemens <arthurclemens@gmail.com> (http://visiblearea.com)",
-  "license": "MIT",
-  "main": "lib/mithril-page-slider.js",
-  "directories": {
-    "src": "src",
-    "baseURL": "src"
-  },
-  "dependencies": {
-    "mithril": "^0.2.0",
-    "j2c": "^0.7.3"
-  },
-  "devDependencies": {
-    "rimraf": "",
-    "autoprefixer": "",
-    "babel": "^5.8.23",
-    "babel-plugin-closure-elimination": "0.0.2",
-    "chokidar": "^1.0.6",
-    "es6-module-loader": "^0.17.7",
-    "ratchet": "git@github.com:twbs/ratchet.git",
-    "systemjs": "^0.19.0",
-    "systemjs-builder": "^0.14.0",
-    "uglify-js": "^2.4.24"
-  },
-  "scripts": {
-    "postinstall": "npm run copy-libs",
-    "transpile-source": "node scripts/watch-es6.js lib/ null once & node scripts/watch-scss.js lib/ null once",
-    "transpile-examples-js": "node scripts/watch-es6.js examples/src/ examples/src/lib/ once",
-    "transpile-examples-css": "node scripts/watch-scss.js examples/src/ examples/src/lib/ once",
-    "transpile-examples": "npm run transpile-examples-css && npm run transpile-examples-js",
-    "transpile": "npm run transpile-source && npm run transpile-examples",
-    "build-examples": "npm run transpile-examples && node scripts/build-examples.js examples",
-    "watch-examples-es6": "node scripts/watch-es6.js examples/src/ examples/src/lib/",
-    "watch-examples-css": "node scripts/watch-scss.js examples/src/ examples/src/lib/",
-    "watch-examples": "npm run watch-examples-es6 & npm run watch-examples-css",
-    "watch-source-css": "node scripts/watch-scss.js lib/ null null copy-libs",
-    "watch-source-es6": "node scripts/watch-es6.js lib/ null null copy-libs",
-    "watch-source": "npm run watch-source-css & npm run watch-source-es6",
-    "watch": "npm run watch-source & npm run watch-examples",
-    "standalone-css": "node scripts/create-standalone-css.js > lib/mithril-page-slider.css",
-    "copy-libs": "node scripts/copy-libs-examples examples/src/lib",
-    "copy-to-gh": "cp -R examples/build/* ../gh-pages/",
-    "clean": "rimraf examples/build && rimraf examples/src/lib",
-    "github": "rimraf ../gh-pages/app && rimraf ../gh-pages/*.html && rimraf ../gh-pages/lib && rimraf ../gh-pages/config.js && npm run transpile && npm run build-examples && npm run copy-to-gh"
-  },
-  "jspm": {
-    "directories": {
-      "lib": "lib"
-    }
-  }
+  "license": "MIT"
 }

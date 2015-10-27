@@ -2,8 +2,6 @@
 
 Component to create page-to-page transitions in a Mithril application.
 
-Version 0.2.0
-
 
 ## Examples
 
@@ -24,21 +22,16 @@ The examples use [Ratchet](http://goratchet.com) for some CSS boilerplate. The p
 
 ## Installation
 
-Either:
+Use as npm module:
 
-* Download or clone from Github
-* `npm install mithril-page-slider`
-* `cd mithril-page-slider`
-* `npm install`
+~~~bash
+npm install mithril-page-slider
+~~~
 
-Then go to the examples folder and view index.html in the browser.
+or download/clone from Github, then in the root directory: `npm install`
 
+For working with the examples, see [Viewing the examples](#viewing-the-examples) below.
 
-### Further development
-
-View `package.json` to see available scripts. For instance: 
-
-* `npm run watch` - transpile es6 and scss files
 
 
 ## Usage
@@ -51,6 +44,7 @@ There are 2 types of calls to the component (you will need both):
 
 1. Routes
 2. Links
+
 
 ### Routes
 
@@ -142,7 +136,7 @@ The examples offer more complete illustrations of usage.
 
 | **Parameter** |  **Mandatory** | **Type** | **Default** | **Description** |
 | ------------- | -------------- | -------- | ----------- | --------------- |
-| **page** | required | Mithril Template or Component | | Page to show | 
+| **page** | required | Mithril Template or Component | | Page to show |
 | **rtl** | optional | Boolean | `false` | Right-to-left language support (for instance Arabic and Hebrew); set to true to mirror transitions |
 | **class** | optional | String | | Slider CSS class appended to ".sliderClass" |
 | **pageClass** | optional | String | | Page CSS class appended to ".page" |
@@ -216,7 +210,7 @@ Page Slider comes with a JavaScript based styling that uses [j2c](https://github
 #### j2c styling
 
 The j2c way goes like this. In your application file:
-    
+
     import styleFn from 'mithril-page-slider-style';
     import sliderStyle from 'mithril-page-slider-transition-style';
     const style = styleFn(sliderStyle, {});
@@ -239,6 +233,54 @@ The examples app dir contains a convenience function to add the styles to the do
 | **pageSelector** | optional | String | '> .page' | Page selector |
 | **vendors** | optional | Array | ['o', 'ms', 'moz', 'webkit'] | Vendor prefix attributes |
 
+
+
+
+## Viewing the examples
+
+* `cd examples/src`
+* `npm install`
+
+Start up a local server, for instance:
+
+* `npm install -g http-server`
+
+Then:
+
+* `http-server .`
+
+
+## Developing
+
+The examples are currently set up in 2 ways (to keep things relatively flexible):
+
+* `src` uses SystemJS - see the path configuration in examples/src/config.js
+* `build` uses Browserify - see examples/src/scripts/build.js
+
+
+For compiling/transpiling, you need to install the following:
+
+~~~bash
+npm install babel -g
+~~~
+
+### Scripts
+
+Compile (transpile) everything:
+
+~~~bash
+npm run transpile
+~~~
+
+transpiles all es6 files to es5
+
+While developing:
+
+~~~bash
+npm run watch
+~~~
+
+Watches changes to es6 files
 
 
 
@@ -266,6 +308,3 @@ MIT
 ## TODO
 
 * Remember scroll position when going to the previous page
-
-
-
