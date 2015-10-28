@@ -74,10 +74,16 @@ home.view = () => {
         m('.content', [
             m('ul.table-view',
                 m('li.table-view-cell.media',
-                    m('a', {href: '/page1', config: m.route}, TITLE_PAGE1)
+                    m('a', {
+                        href: '/page1',
+                        config: m.route
+                    }, TITLE_PAGE1)
                 ),
                 m('li.table-view-cell.media',
-                    m('a', {href: '/page2', config: m.route}, TITLE_PAGE2)
+                    m('a', {
+                        href: '/page2',
+                        config: m.route
+                    }, TITLE_PAGE2)
                 )
             ),
             github()

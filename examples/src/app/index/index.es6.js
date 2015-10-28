@@ -49,7 +49,7 @@ const menu = m('ul.menu', [
 
 let index = {};
 index.view = () => {
-    return m('div', [
+    return m('.index', [
         m('h1', 'Page Slider for Mithril'),
         menu,
         github({home: true})

@@ -34,7 +34,9 @@ const header = (text, back) => {
         back ? m('a', {
             href: back.href,
             class: 'icon icon-left-nav pull-left',
-            config: pageSlider.slideOutConfig({page: back.page})
+            config: pageSlider.slideOutConfig({
+                page: back.page
+            })
         }) : null,
         m('h1.title', text)
     );
@@ -65,10 +67,16 @@ home.view = () => {
         m('.content', [
             m('ul.table-view',
                 m('li.table-view-cell.media',
-                    m('a', {href: '/page1', config: m.route}, 'Page 1')
+                    m('a', {
+                        href: '/page1',
+                        config: m.route
+                    }, 'Page 1')
                 ),
                 m('li.table-view-cell.media',
-                    m('a', {href: '/page2', config: m.route}, 'Page 2')
+                    m('a', {
+                        href: '/page2',
+                        config: m.route
+                    }, 'Page 2')
                 )
             ),
             github()

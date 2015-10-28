@@ -110,7 +110,9 @@ home.view = () => {
                 return m('li.table-view-cell media',
                     m('a', {
                         href: personRoute,
-                        config: slide('in', m.component(person, {name: name}), TYPE_PERSON)
+                        config: slide('in', m.component(person, {
+                            name: name
+                        }), TYPE_PERSON)
                     }, name)
                 );
             })),
@@ -137,11 +139,15 @@ person.view = (ctrl, opts = {}) => {
         m('.content', [
             m('a.large', {
                 href: detailsRoute,
-                config: slide('in', m.component(detail, {name: name}), TYPE_DETAIL)
+                config: slide('in', m.component(detail, {
+                    name: name
+                }), TYPE_DETAIL)
             }, name[0]),
             m('a', {
                 href: detailsRoute,
-                config: slide('in', m.component(detail, {name: name}), TYPE_DETAIL)
+                config: slide('in', m.component(detail, {
+                    name: name
+                }), TYPE_DETAIL)
             }, 'More about ' + name)
         ])
     ]);
@@ -157,7 +163,9 @@ detail.view = (ctrl, opts = {}) => {
             m('a', {
                 href: personRoute,
                 class: 'icon icon-left-nav pull-left',
-                config: slide('out', m.component(person, {name: name}), TYPE_PERSON)
+                config: slide('out', m.component(person, {
+                    name: name
+                }), TYPE_PERSON)
             }),
             m('h1.title', pageTitle)
         ),

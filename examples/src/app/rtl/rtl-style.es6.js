@@ -1,6 +1,6 @@
 const styles = [
-	{
-		'.pageSlider.rtl': {
+    {
+        '.pageSlider.rtl': {
             ' .page': {
                 'background': '#fff'
             },
@@ -20,11 +20,11 @@ const styles = [
             ' .github': {
                 'width': 'auto'
             }
-		}
-	},
-	// make a few corrections to Ratchet markup
-	{
-	    '.table-view': {
+        }
+    },
+    // make a few corrections to Ratchet markup
+    {
+        '.table-view': {
             'padding-right': 0
         },
         '.table-view-cell': {
@@ -35,8 +35,7 @@ const styles = [
                 'margin': '-11px -15px -11px -65px'
             }
         }
-	}
+    }
 ];
 
 export default styles;
-
