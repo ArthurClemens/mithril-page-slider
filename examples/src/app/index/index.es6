@@ -1,5 +1,3 @@
-'use strict';
-
 import m from 'mithril';
 import github from 'app/app/github';
 

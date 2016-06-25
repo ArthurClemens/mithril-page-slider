@@ -1,5 +1,3 @@
-'use strict';
-
 import m from 'mithril';
 import styler from 'app/app/styler';
 import style from './github-style';

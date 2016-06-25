@@ -1,5 +1,3 @@
-'use strict';
-
 import m from 'mithril';
 import pageSlider from 'mithril-page-slider';
 import github from 'app/app/github';
@@ -12,20 +10,26 @@ import styler from 'app/app/styler';
 styler.add('mithril-page-slider', style);
 
 import commonStyle from 'app/app/common-style';
-import simpleStyle from './simple-style';
+import rtlStyle from './rtl-style';
 styler.add('common', commonStyle);
-styler.add('simple', simpleStyle);
+styler.add('rtl', rtlStyle);
 
 const home = {};
 const page1 = {};
 const page2 = {};
+
+const TITLE_PAGE1 = 'اليوم';
+const TITLE_PAGE2 = 'واجب اليوم';
+const NAME_1 = 'سوزان';
+const NAME_2 = 'ايمي';
 
 // page wrapper
 // this function is called at route change
 const slider = (page) => {
     return m.component(pageSlider, {
         page: page,
-        class: 'simple'
+        rtl: true,
+        class: 'rtl'
     });
 };
 
@@ -33,9 +37,10 @@ const header = (text, back) => {
     return m('header.bar.bar-nav',
         back ? m('a', {
             href: back.href,
-            class: 'icon icon-left-nav pull-left',
+            class: 'icon icon-right-nav pull-right',
             config: pageSlider.slideOutConfig({
-                page: back.page
+                page: back.page,
+                rtl: true,
             })
         }) : null,
         m('h1.title', text)
@@ -49,7 +54,7 @@ const card = (name, image) => {
         m('ul.table-view',
             m('li.table-view-cell media',
                 m('a',
-                    m('img.media-object.pull-left.avatar', {
+                    m('img.media-object.pull-right.avatar', {
                         style: {
                             'background-image': 'url(' + imageUrl(image) + ')'
                         }
@@ -63,20 +68,20 @@ const card = (name, image) => {
 
 home.view = () => {
     return m('div',
-        header('Page Slider for Mithril - Simple'),
+        header('Page Slider for Mithril - Right-to-left'),
         m('.content', [
             m('ul.table-view',
                 m('li.table-view-cell.media',
                     m('a', {
                         href: '/page1',
                         config: m.route
-                    }, 'Page 1')
+                    }, TITLE_PAGE1)
                 ),
                 m('li.table-view-cell.media',
                     m('a', {
                         href: '/page2',
                         config: m.route
-                    }, 'Page 2')
+                    }, TITLE_PAGE2)
                 )
             ),
             github()
@@ -86,24 +91,24 @@ home.view = () => {
 
 page1.view = () => {
     return m('.card-page',
-        header('Page 1', {
+        header(TITLE_PAGE1, {
             href: '/',
             page: home
         }),
         m('.content',
-            card('Susan', '1.png')
+            card(NAME_1, '1.png')
         )
     );
 };
 
 page2.view = () => {
     return m('.card-page',
-        header('Page 2', {
+        header(TITLE_PAGE2, {
             href: '/',
             page: home
         }),
         m('.content',
-            card('Amy', '2.png')
+            card(NAME_2, '2.png')
         )
     );
 };

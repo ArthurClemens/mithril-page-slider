@@ -6,16 +6,22 @@
   "scripts": {
     "transpile": "node scripts/transpile.js once lib node_modules",
     "watch": "node scripts/transpile.js watch lib node_modules",
-    "standalone-css": "node scripts/create-standalone-css.js > lib/mithril-page-slider.css"
+    "standalone-css": "node scripts/create-standalone-css.js > lib/mithril-page-slider.css",
+    "build": "node scripts/standalone.js"
   },
   "dependencies": {},
   "devDependencies": {
-    "babel": "^5.8.23",
-    "j2c": "^0.7.3",
-    "mithril": "^0.2.0",
-    "transpile-watch": "0.0.2",
-    "uglify-js": "^2.4.24",
-    "uglifyjs": "^2.4.10"
+    "babel-cli": "^6.6.5",
+    "babel-preset-es2015": "^6.3.13",
+    "browserify": "^13.0.1",
+    "findup-sync": "^0.4.1",
+    "j2c": "^0.11.2",
+    "mithril": "0.2.5",
+    "mithril-objectify": "3.0.1",
+    "shelljs": "^0.7.0",
+    "transpile-watch": "0.1.1",
+    "uglify-js": "^2.6.2",
+    "uglifyify": "^3.0.1"
   },
   "keywords": [
     "slider",
