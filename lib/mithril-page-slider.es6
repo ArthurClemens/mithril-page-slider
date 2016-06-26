@@ -77,10 +77,9 @@ const slide = (opts) => {
     const id = opts.id || route;
     const currentId = vm.currentId();
 
-    if (currentId !== undefined && currentId === id) {
+    if (currentId !== undefined && currentId === id && vm.current()) {
         return;
     }
-
     const transition = {
         page: opts.page,
         id: id,
