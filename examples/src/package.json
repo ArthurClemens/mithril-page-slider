@@ -23,6 +23,7 @@
     "browserify": "^11.2.0",
     "findup-sync": "^0.4.1",
     "mithril-objectify": "3.0.1",
+    "polythene": "^0.2.30",
     "systemjs": "^0.19.26",
     "transpile-watch": "0.1.1",
     "uglify-js": "^2.6.2",

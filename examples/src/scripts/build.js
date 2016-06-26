@@ -42,3 +42,7 @@ bundle([
 bundle([
     'app/simple/simple.es6'
 ], '../build/app/simple/simple-bundle.js');
+
+bundle([
+    'app/polythene/polythene.es6'
+], '../build/app/polythene/polythene-bundle.js');

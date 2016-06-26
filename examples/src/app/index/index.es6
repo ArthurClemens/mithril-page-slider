@@ -14,6 +14,11 @@ const menuData = [
         subtitle: 'Mithril version of ccoenraets/pageslider-react'
     },
     {
+        href: 'polythene.html',
+        title: 'Polythene',
+        subtitle: 'Simple with Polythene components'
+    },
+    {
         href: 'list.html',
         title: 'List with 3 levels',
         subtitle: 'Try with the browser\'s back and forward buttons'
