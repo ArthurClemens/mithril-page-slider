@@ -12,7 +12,10 @@ function bundle(entries, outfile) {
             './node_modules/mithril-page-slider/lib/' // include mithril-page-slider-style.js
         ]
     })
-    .transform(babelify)
+    .transform(babelify, {
+        presets: ['es2015'],
+        sourceMaps: true
+    })
     .transform({
         global: true
     }, 'uglifyify')

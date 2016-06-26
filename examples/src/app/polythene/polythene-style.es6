@@ -1,23 +1,29 @@
 const styles = [{
     '.pageSlider.toolbar': {
-        'background': '#000',
+        'background-color': '#000',
+
         ' .page': {
-            'background': '#fff'
+            'background-color': '#fff'
         },
-        ' .pe-toolbar__bar.pe-toolbar__bar--top > span:first-child': {
-            'margin-left': '16px'
-        },
-        ' .pe-list-tile a': {
-            color: '#444'
+        ' .menu': {
+            ' .pe-list-tile': {
+                'background-color': '#fff'
+            },
+            ' .pe-list-tile a': {
+                color: '#444'
+            }
         },
         ' .card-page .content': {
             'background-color': '#1A237E'
         },
+        ' .cards': {
+            padding: '16px',
+        },
         ' .pe-card': {
-            'margin': '16px'
+            'background-color': '#fff'
         },
         ' .github': {
-            'width': 'auto'
+            width: 'auto'
         }
     }
 }];

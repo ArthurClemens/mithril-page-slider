@@ -25,22 +25,37 @@ const page2 = {};
 
 // header
 const iconBackSVG = m.trust('<svg width="24" height="24" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>');
+const iconMenuSVG = m.trust('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>');
+
 const header = (title, url) => (
     m.component(toolbar, {
         content: [
-            url ? m.component(iconBtn, {
-                icon: {
-                    svg: {
-                        content: iconBackSVG
+            url
+                ? m.component(iconBtn, {
+                    key: 'back',
+                    icon: {
+                        svg: {
+                            content: iconBackSVG
+                        }
+                    },
+                    url: {
+                        href: url.href,
+                        config: pageSlider.slideOutConfig({
+                            page: url.page
+                        })
                     }
-                },
-                url: {
-                    href: url.href,
-                    config: pageSlider.slideOutConfig({
-                        page: url.page
-                    })
-                }
-            }) : null,
+                })
+                : m.component(iconBtn, {
+                    key: 'menu',
+                    icon: {
+                        svg: {
+                            content: iconMenuSVG
+                        }
+                    },
+                    url: {
+                        href: '/'
+                    }
+                }),
             m('span', title)
         ]
     })
@@ -75,8 +90,9 @@ const card = (name, image) => {
 home.view = () => {
     return m('div',
         m('.content', [
-            header('Page Slider for Mithril - Toolbar'),
+            header('Page Slider for Mithril - Polythene'),
             m.component(list, {
+                class: 'menu',
                 borders: true,
                 tiles: [
                     m.component(listTile, {
@@ -105,7 +121,9 @@ page1.view = () => {
                 href: '/',
                 page: home
             }),
-            card('Susan', '1.png')
+            m('.cards', 
+                card('Susan', '1.png')
+            )
         ])
     );
 };
@@ -117,7 +135,9 @@ page2.view = () => {
                 href: '/',
                 page: home
             }),
-            card('Amy', '2.png')
+            m('.cards', 
+                card('Amy', '2.png')
+            )
         ])
     );
 };
