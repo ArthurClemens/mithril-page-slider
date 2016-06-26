@@ -66,7 +66,7 @@ const header = (title, url) => (
 const slider = (page) => {
     return m.component(pageSlider, {
         page,
-        class: 'toolbar'
+        class: 'polythene'
     });
 };
 

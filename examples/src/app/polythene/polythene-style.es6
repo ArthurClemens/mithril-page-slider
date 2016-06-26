@@ -1,5 +1,5 @@
 const styles = [{
-    '.pageSlider.toolbar': {
+    '.pageSlider.polythene': {
         'background-color': '#000',
 
         ' .page': {
