@@ -1,5 +1,13 @@
 # Page Slider for Mithril on mobile and desktop
 
+
+
+## DEPRECATED
+
+This package is superseded by https://github.com/ArthurClemens/glissando
+
+---
+
 Component to create page-to-page transitions in a Mithril application.
 
 
