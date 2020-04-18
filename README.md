@@ -10,6 +10,8 @@ This package is superseded by https://github.com/ArthurClemens/glissando
 
 Component to create page-to-page transitions in a Mithril application.
 
+Compatible with Mithril 0.2.
+
 
 ## Examples
 
