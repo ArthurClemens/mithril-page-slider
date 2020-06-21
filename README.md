@@ -6,6 +6,8 @@
 
 This package is superseded by https://github.com/ArthurClemens/glissando
 
+See [List and details](https://codesandbox.io/s/glissando-for-mithril-router-list-and-details-o5679) code example.
+
 ---
 
 Component to create page-to-page transitions in a Mithril application.
@@ -144,33 +146,33 @@ The examples offer more complete illustrations of usage.
 
 #### Route parameters
 
-| **Parameter** |  **Mandatory** | **Type** | **Default** | **Description** |
-| ------------- | -------------- | -------- | ----------- | --------------- |
-| **page** | required | Mithril Template or Component | | Page to show |
-| **rtl** | optional | Boolean | `false` | Right-to-left language support (for instance Arabic and Hebrew); set to true to mirror transitions |
-| **class** | optional | String | | Slider CSS class appended to ".sliderClass" |
-| **pageClass** | optional | String | | Page CSS class appended to ".page" |
+| **Parameter** | **Mandatory** | **Type**                      | **Default** | **Description**                                                                                    |
+| ------------- | ------------- | ----------------------------- | ----------- | -------------------------------------------------------------------------------------------------- |
+| **page**      | required      | Mithril Template or Component |             | Page to show                                                                                       |
+| **rtl**       | optional      | Boolean                       | `false`     | Right-to-left language support (for instance Arabic and Hebrew); set to true to mirror transitions |
+| **class**     | optional      | String                        |             | Slider CSS class appended to ".sliderClass"                                                        |
+| **pageClass** | optional      | String                        |             | Page CSS class appended to ".page"                                                                 |
 
 
 #### Transition parameters
 
-| **Parameter** |  **Mandatory** | **Type** | **Default** | **Description** |
-| ------------- | -------------- | -------- | ----------- | --------------- |
-| **page** | required | Mithril Template or Component | | Page to move to |
-| **duration** | optional | Number | 360 | Transition duration in ms |
-| **done** | optional | Function | | Called at the end of a transition, after the route change; also called for the first page (when no route change is applied) |
+| **Parameter** | **Mandatory** | **Type**                      | **Default** | **Description**                                                                                                             |
+| ------------- | ------------- | ----------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **page**      | required      | Mithril Template or Component |             | Page to move to                                                                                                             |
+| **duration**  | optional      | Number                        | 360         | Transition duration in ms                                                                                                   |
+| **done**      | optional      | Function                      |             | Called at the end of a transition, after the route change; also called for the first page (when no route change is applied) |
 
 
 #### Expert parameters
 
 These are normally not needed.
 
-| **Parameter** |  **Route or Transition** | **Mandatory** | **Type** | **Default** | **Description** |
-| ------------- | ------------------------ | ------------- | -------- | ----------- | --------------- |
-| **route** | transition | optional | String | The result of `m.route()` | The destination route; by default provided with the link config |
-| **direction** | transition | optional | Number: 1 or -1 | 1 | Transition direction, where -1 stands for backward (regardless the writing orientation) |
-| **slider** | both | optional | String | 'default' | In case multiple sliders are used, sliders can be distinguished by adding this id |
-| **id** | both | optional | String | The value of `route` | An id is used for each page state to distinguish pages and assign navigation depth; use only when `route` is not used |
+| **Parameter** | **Route or Transition** | **Mandatory** | **Type**        | **Default**               | **Description**                                                                                                       |
+| ------------- | ----------------------- | ------------- | --------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **route**     | transition              | optional      | String          | The result of `m.route()` | The destination route; by default provided with the link config                                                       |
+| **direction** | transition              | optional      | Number: 1 or -1 | 1                         | Transition direction, where -1 stands for backward (regardless the writing orientation)                               |
+| **slider**    | both                    | optional      | String          | 'default'                 | In case multiple sliders are used, sliders can be distinguished by adding this id                                     |
+| **id**        | both                    | optional      | String          | The value of `route`      | An id is used for each page state to distinguish pages and assign navigation depth; use only when `route` is not used |
 
 
 ### Methods
@@ -238,10 +240,10 @@ The examples app dir contains a convenience function to add the styles to the do
 
 #### styleFn options
 
-| **Parameter** |  **Mandatory** | **Type** | **Default** | **Description** |
-| ------------- | -------------- | -------- | ----------- | --------------- |
-| **pageSelector** | optional | String | '> .page' | Page selector |
-| **vendors** | optional | Array | ['o', 'ms', 'moz', 'webkit'] | Vendor prefix attributes |
+| **Parameter**    | **Mandatory** | **Type** | **Default**                  | **Description**          |
+| ---------------- | ------------- | -------- | ---------------------------- | ------------------------ |
+| **pageSelector** | optional      | String   | '> .page'                    | Page selector            |
+| **vendors**      | optional      | Array    | ['o', 'ms', 'moz', 'webkit'] | Vendor prefix attributes |
 
 
 
