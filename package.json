@@ -16,7 +16,7 @@
     "browserify": "^13.0.1",
     "findup-sync": "^0.4.1",
     "j2c": "^0.11.2",
-    "mithril": "0.2.5",
+    "mithril": "2.0.4",
     "mithril-objectify": "3.0.1",
     "shelljs": "^0.7.0",
     "transpile-watch": "0.1.1",
